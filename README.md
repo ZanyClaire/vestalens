@@ -4,12 +4,13 @@
 
 ---
 
-## 📱 Download & Install on Android
+## 📱 Download & Install on Android (`ZanyClaire/vestalens`)
 
-Once the GitHub Actions workflow finishes running on this repository, you can download and install the `.apk` directly on any Android phone:
+Tap either link below on your Android phone to download and install **`VistaLens.apk`**:
 
-- **[⬇️ Direct 1-Click APK Download (`VistaLens.apk`)](../../releases/latest/download/VistaLens.apk)**
-- **[📦 View Latest GitHub Release Page](../../releases/latest)**
+- **[⬇️ Direct APK Download from Repository (`VistaLens.apk`)](https://github.com/ZanyClaire/vestalens/raw/main/release/VistaLens.apk)**
+- **[⬇️ Direct APK Download from Latest Release (`VistaLens.apk`)](https://github.com/ZanyClaire/vestalens/releases/latest/download/VistaLens.apk)**
+- **[📦 View Latest GitHub Release Page](https://github.com/ZanyClaire/vestalens/releases/latest)**
 
 ---
 

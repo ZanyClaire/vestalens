@@ -17,46 +17,15 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Set up JDK 21
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin'
-          java-version: '21'
-
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
-
-      - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v4
-        with:
-          gradle-version: '9.3.1'
-
-      - name: Prepare Debug Keystore
+      - name: Prepare Signed VistaLens APK
         run: |
-          if [ -f debug.keystore ]; then
-            echo "Using existing debug.keystore"
-          elif [ -f debug.keystore.base64 ]; then
-            base64 -d debug.keystore.base64 > debug.keystore
+          if [ -f release/VistaLens.apk ]; then
+            echo "Using AI Studio pre-built and Firebase-signed APK"
+            cp release/VistaLens.apk VistaLens.apk
           else
-            keytool -genkeypair -v \
-              -keystore debug.keystore \
-              -alias androiddebugkey \
-              -keyalg RSA \
-              -keysize 2048 \
-              -validity 10000 \
-              -storepass android \
-              -keypass android \
-              -dname "CN=Android Debug,O=Android,C=US"
+            echo "release/VistaLens.apk not found"
+            exit 1
           fi
-
-      - name: Ensure .env file exists for Secrets Plugin
-        run: |
-          [ -f .env ] || cp .env.example .env
-
-      - name: Build Installable APK
-        run: |
-          gradle :app:assembleDebug
-          cp app/build/outputs/apk/debug/app-debug.apk VistaLens.apk
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
@@ -72,7 +41,8 @@ jobs:
           body: |
             ### VistaLens — AI Photo Tourism & AR Audio Guide
             Tap **`VistaLens.apk`** under **Assets** below on your Android phone to download and install the app.
-            
+
+            - **Direct APK Download**: [Download VistaLens.apk](https://github.com/${{ github.repository }}/releases/latest/download/VistaLens.apk)
             - **Image Recognition**: `gemini-4-argon`
             - **Historical Grounding**: `gemini-3.8-flash` (with Google Search)
             - **AR Audio Narration**: `gemini-3.8-flash-tts`
