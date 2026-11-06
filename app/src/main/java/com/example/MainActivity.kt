@@ -30,10 +30,8 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.CameraEnhance
 import androidx.compose.material.icons.filled.Check
-import androidx.compose.material.icons.filled.Explore
-import androidx.compose.material.icons.filled.Translate
+import com.example.ui.AppIcons
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -310,7 +308,7 @@ private fun VistaLensTopBar(
                 contentAlignment = Alignment.Center
             ) {
                 Icon(
-                    imageVector = Icons.Default.CameraEnhance,
+                    imageVector = AppIcons.CameraAlt,
                     contentDescription = "VistaLens Logo",
                     tint = Color(0xFF09101A),
                     modifier = Modifier.size(22.dp)
@@ -350,7 +348,7 @@ private fun VistaLensTopBar(
                     horizontalArrangement = Arrangement.spacedBy(6.dp)
                 ) {
                     Icon(
-                        imageVector = Icons.Default.Translate,
+                        imageVector = AppIcons.Translate,
                         contentDescription = "Preferred Language",
                         tint = MaterialTheme.colorScheme.secondary,
                         modifier = Modifier.size(15.dp)
@@ -375,7 +373,7 @@ private fun VistaLensTopBar(
                         horizontalArrangement = Arrangement.spacedBy(5.dp)
                     ) {
                         Icon(
-                            imageVector = Icons.Default.Explore,
+                            imageVector = AppIcons.Explore,
                             contentDescription = null,
                             tint = MaterialTheme.colorScheme.primary,
                             modifier = Modifier.size(14.dp)

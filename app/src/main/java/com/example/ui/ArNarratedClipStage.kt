@@ -39,13 +39,9 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
-import androidx.compose.material.icons.filled.GraphicEq
 import androidx.compose.material.icons.filled.LocationOn
-import androidx.compose.material.icons.filled.Pause
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Refresh
-import androidx.compose.material.icons.filled.Replay
-import androidx.compose.material.icons.filled.Verified
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -526,7 +522,7 @@ fun ArNarratedClipStage(
                             horizontalArrangement = Arrangement.spacedBy(6.dp)
                         ) {
                             Icon(
-                                imageVector = Icons.Default.Verified,
+                                imageVector = AppIcons.Verified,
                                 contentDescription = "Verified Recognition",
                                 tint = MaterialTheme.colorScheme.tertiary,
                                 modifier = Modifier.size(16.dp)
@@ -665,7 +661,7 @@ fun ArNarratedClipStage(
                                 horizontalArrangement = Arrangement.spacedBy(6.dp)
                             ) {
                                 Icon(
-                                    imageVector = Icons.Default.GraphicEq,
+                                    imageVector = AppIcons.GraphicEq,
                                     contentDescription = null,
                                     tint = MaterialTheme.colorScheme.secondary,
                                     modifier = Modifier.size(14.dp)
@@ -801,7 +797,7 @@ private fun AudioNarrationDeck(
                         } else {
                             Icon(
                                 imageVector = if (playbackState.isPlaying) {
-                                    Icons.Default.Pause
+                                    AppIcons.Pause
                                 } else {
                                     Icons.Default.PlayArrow
                                 },
@@ -890,7 +886,7 @@ private fun AudioNarrationDeck(
                     modifier = Modifier.testTag("replay_narration_button")
                 ) {
                     Icon(
-                        imageVector = Icons.Default.Replay,
+                        imageVector = AppIcons.Replay,
                         contentDescription = "Replay Narration",
                         tint = MaterialTheme.colorScheme.secondary
                     )

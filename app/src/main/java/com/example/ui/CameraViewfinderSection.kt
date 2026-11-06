@@ -44,13 +44,6 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AutoAwesome
-import androidx.compose.material.icons.filled.CameraAlt
-import androidx.compose.material.icons.filled.PhotoLibrary
-import androidx.compose.material.icons.filled.Public
-import androidx.compose.material.icons.filled.RecordVoiceOver
-import androidx.compose.material.icons.outlined.CenterFocusStrong
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -198,7 +191,7 @@ fun CameraViewfinderSection(
                             horizontalArrangement = Arrangement.spacedBy(6.dp)
                         ) {
                             Icon(
-                                imageVector = Icons.Outlined.CenterFocusStrong,
+                                imageVector = AppIcons.CenterFocusStrong,
                                 contentDescription = null,
                                 tint = MaterialTheme.colorScheme.secondary,
                                 modifier = Modifier.size(15.dp)
@@ -242,7 +235,7 @@ fun CameraViewfinderSection(
                             )
                         ) {
                             Icon(
-                                imageVector = Icons.Default.CameraAlt,
+                                imageVector = AppIcons.CameraAlt,
                                 contentDescription = "Enable Camera",
                                 modifier = Modifier.size(18.dp)
                             )
@@ -289,7 +282,7 @@ fun CameraViewfinderSection(
                         )
                     ) {
                         Icon(
-                            imageVector = Icons.Default.CameraAlt,
+                            imageVector = AppIcons.CameraAlt,
                             contentDescription = "Snap Landmark",
                             modifier = Modifier.size(20.dp)
                         )
@@ -317,7 +310,7 @@ fun CameraViewfinderSection(
                         )
                     ) {
                         Icon(
-                            imageVector = Icons.Default.PhotoLibrary,
+                            imageVector = AppIcons.PhotoLibrary,
                             contentDescription = "Upload Photo",
                             modifier = Modifier.size(20.dp),
                             tint = MaterialTheme.colorScheme.secondary
@@ -513,19 +506,19 @@ private fun ModelCapabilitiesStrip() {
             verticalAlignment = Alignment.CenterVertically
         ) {
             CapabilityBadge(
-                icon = Icons.Default.AutoAwesome,
+                icon = AppIcons.AutoAwesome,
                 title = "VISION",
                 subtitle = "gemini-4-argon",
                 accent = MaterialTheme.colorScheme.primary
             )
             CapabilityBadge(
-                icon = Icons.Default.Public,
+                icon = AppIcons.Public,
                 title = "SEARCH",
                 subtitle = "gemini-3.8-flash",
                 accent = MaterialTheme.colorScheme.secondary
             )
             CapabilityBadge(
-                icon = Icons.Default.RecordVoiceOver,
+                icon = AppIcons.RecordVoiceOver,
                 title = "NARRATOR",
                 subtitle = "gemini-3.8-flash-tts",
                 accent = MaterialTheme.colorScheme.tertiary

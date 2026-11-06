@@ -17,36 +17,70 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Prepare Signed VistaLens APK
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Verify Keystore Configuration (debug.keystore)
         run: |
-          if [ -f release/VistaLens.apk ]; then
-            echo "Using AI Studio pre-built and Firebase-signed APK"
-            cp release/VistaLens.apk VistaLens.apk
+          if [ -f debug.keystore ]; then
+            echo "Found existing debug.keystore"
+          elif [ -f debug.keystore.base64 ]; then
+            echo "Decoding debug.keystore.base64 -> debug.keystore"
+            base64 -d debug.keystore.base64 > debug.keystore
           else
-            echo "release/VistaLens.apk not found"
-            exit 1
+            echo "Generating fallback debug.keystore for debugConfig signing"
+            keytool -genkeypair -v \
+              -keystore debug.keystore \
+              -alias androiddebugkey \
+              -keyalg RSA \
+              -keysize 2048 \
+              -validity 10000 \
+              -storepass android \
+              -keypass android \
+              -dname "CN=Android Debug,O=Android,C=US"
           fi
 
+      - name: Verify Secrets (.env) & Google Services (app/google-services.json)
+        run: |
+          if [ ! -f .env ]; then
+            echo "Creating .env from .env.example for Secrets Gradle Plugin"
+            cp .env.example .env
+          fi
+          if [ -f app/google-services.json ]; then
+            echo "Verified app/google-services.json is present"
+          else
+            echo "::warning::app/google-services.json is missing. Firebase AI Logic requires google-services.json at runtime."
+          fi
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '9.3.1'
+
+      - name: Build Debug APK
+        run: |
+          gradle :app:assembleDebug --stacktrace
+          cp app/build/outputs/apk/debug/app-debug.apk VistaLens.apk
+
       - name: Upload APK Artifact
+        if: success()
         uses: actions/upload-artifact@v4
         with:
           name: VistaLens-APK
           path: VistaLens.apk
 
       - name: Publish APK to GitHub Releases (latest)
+        if: success()
         uses: softprops/action-gh-release@v2
         with:
           tag_name: v1.0.${{ github.run_number }}
           name: "VistaLens v1.0.${{ github.run_number }} (Installable Android APK)"
-          body: |
-            ### VistaLens — AI Photo Tourism & AR Audio Guide
-            Tap **`VistaLens.apk`** under **Assets** below on your Android phone to download and install the app.
-
-            - **Direct APK Download**: [Download VistaLens.apk](https://github.com/${{ github.repository }}/releases/latest/download/VistaLens.apk)
-            - **Image Recognition**: `gemini-4-argon`
-            - **Historical Grounding**: `gemini-3.8-flash` (with Google Search)
-            - **AR Audio Narration**: `gemini-3.8-flash-tts`
-            - **Multilingual Persistence**: Jetpack DataStore Preferences
           files: VistaLens.apk
           draft: false
           prerelease: false

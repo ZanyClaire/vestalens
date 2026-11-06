@@ -21,13 +21,8 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.OpenInNew
 import androidx.compose.material.icons.automirrored.filled.Send
-import androidx.compose.material.icons.filled.HistoryEdu
-import androidx.compose.material.icons.filled.Lightbulb
-import androidx.compose.material.icons.filled.Public
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.material.icons.filled.Timeline
 import androidx.compose.material3.AssistChip
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -99,7 +94,7 @@ fun GroundedHistoryDossierSection(
                     horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
                     Icon(
-                        imageVector = Icons.Default.Public,
+                        imageVector = AppIcons.Public,
                         contentDescription = "Google Search Grounding",
                         tint = MaterialTheme.colorScheme.secondary,
                         modifier = Modifier.size(20.dp)
@@ -205,7 +200,7 @@ fun GroundedHistoryDossierSection(
                     horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
                     Icon(
-                        imageVector = Icons.Default.HistoryEdu,
+                        imageVector = AppIcons.HistoryEdu,
                         contentDescription = null,
                         tint = MaterialTheme.colorScheme.primary,
                         modifier = Modifier.size(22.dp)
@@ -264,7 +259,7 @@ fun GroundedHistoryDossierSection(
                         horizontalArrangement = Arrangement.spacedBy(8.dp)
                     ) {
                         Icon(
-                            imageVector = Icons.Default.Timeline,
+                            imageVector = AppIcons.Timeline,
                             contentDescription = null,
                             tint = MaterialTheme.colorScheme.tertiary,
                             modifier = Modifier.size(20.dp)
@@ -324,7 +319,7 @@ fun GroundedHistoryDossierSection(
                 verticalAlignment = Alignment.Top
             ) {
                 Icon(
-                    imageVector = Icons.Default.Lightbulb,
+                    imageVector = AppIcons.Lightbulb,
                     contentDescription = "Visitor Tip",
                     tint = MaterialTheme.colorScheme.primary,
                     modifier = Modifier.size(22.dp)
@@ -552,7 +547,7 @@ private fun SearchCitationRow(
             }
             Spacer(modifier = Modifier.width(8.dp))
             Icon(
-                imageVector = Icons.AutoMirrored.Filled.OpenInNew,
+                imageVector = AppIcons.OpenInNew,
                 contentDescription = "Open web source",
                 tint = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.size(16.dp)
