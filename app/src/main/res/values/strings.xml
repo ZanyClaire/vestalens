@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">VistaLens</string>
+    <string name="tagline">AR Landmark Vision &amp; Search-Grounded Audio Tours</string>
+    <string name="action_capture_photo">Snap Landmark</string>
+    <string name="action_upload_photo">Upload Photo</string>
+    <string name="action_live_camera">AR Camera</string>
+    <string name="action_play_narration">Play AR Narration</string>
+    <string name="action_pause_narration">Pause Narration</string>
+    <string name="action_regenerate_tts">Synthesize Voice</string>
+    <string name="action_ask_followup">Ask Google Search</string>
+    <string name="tab_ar_clip">AR Narrated Clip</string>
+    <string name="tab_history_dossier">Grounded History</string>
+    <string name="tab_passport">Saved Scans</string>
+    <string name="section_preset_landmarks">Instant City Field Scans</string>
+    <string name="section_ar_hotspots">AR Spatial Callouts</string>
+    <string name="section_search_sources">Google Search Grounding Sources</string>
+    <string name="camera_permission_rationale">Grant camera access to use the live AR Viewfinder and capture city landmarks directly.</string>
+    <string name="grant_camera_permission">Enable AR Camera</string>
+</resources>

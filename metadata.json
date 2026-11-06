@@ -1,0 +1,6 @@
+{
+  "name": "VistaLens",
+  "description": "AI photo tourism companion that recognizes city landmarks, fetches grounded historical facts via Google Search, and plays an AR-style narrated audio tour.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
